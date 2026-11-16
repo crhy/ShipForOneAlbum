@@ -1,0 +1,9 @@
+{
+  "name": "rhymusic-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Buildless rhYmusic.com site for ShipForOneAlbum: static HTML, CSS, one dependency-free script",
+  "scripts": {
+    "dev": "node dev-server.mjs"
+  }
+}

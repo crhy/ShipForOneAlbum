@@ -1,0 +1,13 @@
+# rhYmusic.com headers (Cloudflare Pages format).
+# HTTPS is enforced at the edge: HSTS with preload and subdomains, plus
+# upgrade-insecure-requests and a CSP that frames nothing and loads nothing
+# third-party. No frame-allow-from, no frame-ancestors wildcards.
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; frame-src 'none'; object-src 'none'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; manifest-src 'self'; form-action 'self'; upgrade-insecure-requests
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Cross-Origin-Resource-Policy: same-origin
+  Cache-Control: no-cache

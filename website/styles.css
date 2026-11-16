@@ -1,0 +1,213 @@
+/* rhYmusic.com — no external fonts, no frameworks, no third-party requests. */
+:root {
+  --bg: #101418;
+  --bg-dark: #0a0d10;
+  --bg-sky: #1a222b;
+  --fg: #f0ece3;
+  --fg-dim: #b3bac4;
+  --line: #2c3540;
+  --accent: #d98b3f;
+  --accent-2: #6fa8a0;
+  --warn: #c2604f;
+  --radius: 10px;
+  --shell: 64rem;
+  --narrow: 40rem;
+  --gap: clamp(1.2rem, 3vw, 2.5rem);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+a:hover, a:focus { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3, h4, p, ul, ol, table, pre, figure, blockquote { max-width: 100%; }
+
+code { font-family: var(--mono); font-size: 0.94em; }
+
+/* ---------- header and navigation ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap);
+  padding: 1rem clamp(.8rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-dark);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.mark {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.mark-name { font-weight: 700; letter-spacing: 0.02em; }
+.mark-tag { color: var(--fg-dim); font-size: 0.86rem; }
+
+.nav-toggle {
+  display: none;
+  font: inherit;
+  background: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.1rem;
+  margin-left: auto;
+}
+
+.site-nav a { text-decoration: none; }
+.site-nav a:hover, .site-nav a:focus { text-decoration: underline; }
+
+/* ---------- sections ---------- */
+.section { padding: clamp(1.6rem, 4vw, 3rem) clamp(.8rem, 3vw, 2rem); }
+.section.dark { background: var(--bg-dark); }
+.section.sky { background: var(--bg-sky); }
+
+.shell { width: 100%; max-width: var(--shell); margin: 0 auto; }
+.narrow { width: 100%; max-width: var(--narrow); margin: 0 auto; }
+.prose { max-width: 46rem; margin: 0 auto 2rem; }
+
+.hero {
+  padding: clamp(2rem, 6vw, 4rem) clamp(.8rem, 3vw, 2rem);
+  background: linear-gradient(160deg, var(--bg-sky), var(--bg));
+}
+
+.display {
+  margin: 0 0 0.6rem;
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+  font-weight: 700;
+}
+
+.lede { font-size: 1.12rem; color: var(--fg); }
+.small { font-size: 0.86rem; color: var(--fg-dim); }
+.note { font-size: 0.92rem; color: var(--fg-dim); border-left: 3px solid var(--line); padding-left: 0.9rem; }
+
+.quote {
+  margin: 1.2rem 0;
+  padding: 0.8rem 1.1rem;
+  border-left: 3px solid var(--accent-2);
+  background: rgba(255, 255, 255, 0.03);
+  font-style: italic;
+}
+
+.quote p { margin: 0; }
+.quote p + p { margin-top: 0.6rem; }
+
+/* ---------- buttons ---------- */
+.button-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+}
+
+.button:hover, .button:focus { border-color: var(--accent); text-decoration: none; }
+.button.fill { background: var(--accent); color: #14171a; border-color: var(--accent); font-weight: 600; }
+
+/* ---------- track table ---------- */
+.track-table {
+  width: 100%;
+  max-width: var(--shell);
+  margin: 0 auto;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+}
+
+.track-table caption { text-align: left; color: var(--fg-dim); font-size: 0.86rem; padding-bottom: 0.6rem; }
+.track-table th, .track-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.track-table thead th { border-bottom: 2px solid var(--line); font-weight: 700; }
+.track-table tbody tr.has-stems { background: rgba(111, 168, 160, 0.10); }
+.track-table tbody tr.unresolved { background: rgba(194, 96, 79, 0.12); }
+
+.track-name { font-weight: 600; }
+
+.flag-unresolved {
+  color: var(--warn);
+  border-bottom: 1px dashed var(--warn);
+}
+
+/* ---------- stems ---------- */
+.stem-groups { display: grid; gap: 1.2rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-top: 1.6rem; }
+.stem-group { border: 1px solid var(--line); border-radius: var(--radius); padding: 0.9rem 1.1rem; background: rgba(255, 255, 255, 0.02); }
+.stem-family { margin: 0 0 0.6rem; font-size: 1rem; font-weight: 700; }
+.stem-count { color: var(--fg-dim); font-weight: 400; font-size: 0.86rem; }
+.stem-list { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; }
+.stem-list li { display: flex; flex-wrap: wrap; gap: 0.3rem 0.6rem; padding: 0.18rem 0; }
+.stem-list a { text-decoration: none; font-family: var(--mono); font-size: 0.88rem; }
+.stem-list a:hover, .stem-list a:focus { text-decoration: underline; }
+.stem-size { color: var(--fg-dim); font-size: 0.8rem; margin-left: auto; }
+
+/* ---------- lists ---------- */
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.3rem 0; }
+
+/* ---------- footer ---------- */
+.site-footer {
+  padding: 1.6rem clamp(.8rem, 3vw, 2rem) 2.4rem;
+  border-top: 1px solid var(--line);
+  background: var(--bg-dark);
+}
+
+.external { border-bottom: 1px dotted var(--line); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 58rem) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0.8rem clamp(.8rem, 3vw, 2rem);
+    background: var(--bg-dark);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-nav.open { display: flex; }
+  .stem-groups { grid-template-columns: 1fr; }
+  .stem-size { margin-left: 0; }
+  .track-table { font-size: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
